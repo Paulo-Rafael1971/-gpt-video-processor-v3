@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const analyzeRoute = require('./analyze');
+const analyze = require('./analyze');
 
 const app = express();
 app.use(bodyParser.json());
-app.use('/api', analyzeRoute);
+app.use('/api', analyze);
 
 app.get('/', (req, res) => {
-  res.send('GPT Video Processor v2 - Node Version');
+  res.sendFile(__dirname + '/../public/index.html');
 });
 
 module.exports = app;
